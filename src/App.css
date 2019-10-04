@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-rows: 100px 1fr 50px;
+
 }
 
 .App-logo {
@@ -7,16 +10,36 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  display: grid;
+  background-color: #09d3ac;
+
+
+}
+
+.NavBar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-evenly;
+}
+
+.NavBar  * {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.NavBar ul {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .App-link {
   color: #09d3ac;
+}
+
+
+
+
+.body {
+  background: red;
+  min-height: 1000px;
 }
