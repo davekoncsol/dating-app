@@ -25,15 +25,11 @@ function getUser() {
 
 
 function getUserBy(id){
-  return fetch(`${BASE_URL}${id}`, {
-    method: 'GET',
-    headers: {'content-type': 'application/json',
-    'Accept': 'application/json'},}
+  console.log(id, "userService")
+  return fetch(`${BASE_URL}${id}`).then(res => res.json());
 
-  ).then(res => res.json());
 
 }
-
 
 function logout() {
   tokenService.removeToken();

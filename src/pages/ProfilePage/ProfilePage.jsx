@@ -6,7 +6,7 @@ const ProfilePage = (props) => {
 console.log(props.match.params.id)
 
     const profile = props.profileUser(props.match.params.id)
-    console.log(profile)
+   
 
     return (
       <div className='body'>
