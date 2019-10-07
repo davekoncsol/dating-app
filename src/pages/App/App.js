@@ -5,6 +5,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import Body from '../../components/Body/Body'
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
 
 class App extends Component {
@@ -21,6 +22,9 @@ class App extends Component {
     this.setState({ user: null });
   }
 
+  getUsers = (id) => {
+    
+  }
 
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
@@ -40,6 +44,12 @@ render() {
           <Body />
 
         }/>
+        <Route exact path="/profile/:id" render={() =>
+        <ProfilePage 
+        user={this.state.user}
+        />
+        
+      }/>
         <Route exact path='/signup' render={({ history }) =>
           <SignupPage
             history={history}
