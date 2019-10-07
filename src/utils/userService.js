@@ -24,6 +24,15 @@ function getUser() {
 }
 
 
+function getUserBy(id){
+  return fetch(`${BASE_URL}/${id}`,{
+    method: 'GET',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify(id)
+  }).then(res => res.json());
+
+}
+
 
 function logout() {
   tokenService.removeToken();
@@ -47,5 +56,6 @@ export default {
   signup, 
   getUser,
   logout,
-  login
+  login,
+  getUserBy
 };

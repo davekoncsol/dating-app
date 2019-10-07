@@ -17,13 +17,16 @@ class App extends Component {
     };
   }
 
+
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
   }
 
-  getUsers = (id) => {
-    
+  getUserById = async id => {
+    await userService.getUserBy(id);
+
   }
 
   handleSignupOrLogin = () => {
@@ -44,9 +47,11 @@ render() {
           <Body />
 
         }/>
-        <Route exact path="/profile/:id" render={() =>
+        <Route exact path="/profile/:id" render={(props) =>
         <ProfilePage 
+        {...props}
         user={this.state.user}
+        profile={this.getUserById}
         />
         
       }/>
