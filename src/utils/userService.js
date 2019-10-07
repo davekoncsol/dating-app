@@ -25,11 +25,12 @@ function getUser() {
 
 
 function getUserBy(id){
-  return fetch(`${BASE_URL}/${id}`,{
+  return fetch(`${BASE_URL}${id}`, {
     method: 'GET',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify(id)
-  }).then(res => res.json());
+    headers: {'content-type': 'application/json',
+    'Accept': 'application/json'},}
+
+  ).then(res => res.json());
 
 }
 

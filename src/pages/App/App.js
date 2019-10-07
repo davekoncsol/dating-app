@@ -25,7 +25,8 @@ class App extends Component {
   }
 
   getUserById = async id => {
-    await userService.getUserBy(id);
+   let profileUser = await userService.getUserBy(id);
+   this.setState({profileUser})
 
   }
 
@@ -51,7 +52,7 @@ render() {
         <ProfilePage 
         {...props}
         user={this.state.user}
-        profile={this.getUserById}
+        profileUser={this.getUserById}
         />
         
       }/>

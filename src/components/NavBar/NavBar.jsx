@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const NavBar = (props) => {
-  let id = props.user._id
+  
     let nav = props.user ?
     
         <div className="NavBar">
@@ -13,7 +13,7 @@ const NavBar = (props) => {
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
         <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <Link to={`/profile/${id}`} className='NavBar-link'>Profile</Link>
+        <Link to={`/profile/${props.user._id}`} className='NavBar-link'>Profile</Link>
       </div>
       :
       <div className="NavBar">
