@@ -16,6 +16,11 @@ class App extends Component {
     };
   }
 
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
 
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
@@ -26,7 +31,9 @@ render() {
     return (
     <div className="App">
       <header className="App-header">
-       <NavBar />
+       <NavBar 
+       user={this.state.user}
+       handleLogout={this.handleLogout}/>
       </header>
       <Switch>
         <Route exact path='/' render={() =>
