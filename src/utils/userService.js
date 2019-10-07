@@ -1,6 +1,6 @@
 import tokenService from './tokenService';
 
-const BASE_URL = '/api/users/';
+const BASE_URL = '/api/users';
 
 function signup(user) {
   return fetch(BASE_URL + 'signup', {
@@ -25,8 +25,8 @@ function getUser() {
 
 
 function getUserBy(id){
-  console.log(id, "userService")
-  return fetch(`${BASE_URL}${id}`).then(res => res.json());
+  
+  return fetch(`${BASE_URL}/${id}`).then(res => res.json());
 
 
 }

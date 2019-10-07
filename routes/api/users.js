@@ -4,9 +4,9 @@ const User = require('../../models/user');
 const usersCtrl = require('../../controllers/users');
 
 /*---------- Public Routes ----------*/
+router.get('/:id', usersCtrl.show);
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
-router.get('/profile/:id', usersCtrl.show);
 
 
 /*---------- Protected Routes ----------*/
