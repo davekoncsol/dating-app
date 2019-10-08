@@ -5,8 +5,14 @@ const SECRET = process.env.SECRET;
 module.exports = {
   signup,
   login,
-  show
+  show,
+  allProfiles
 };
+
+async function allProfiles(req, res) {
+  const profiles = await User.find({});
+  res.status(200).json(profiles);
+}
 
 async function show(req, res) {
   const user = await User.findById(req.params.id);

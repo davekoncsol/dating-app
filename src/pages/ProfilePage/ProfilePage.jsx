@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import userService from '../../utils/userService'
-
-
-
 
 
 class ProfilePage extends Component  {
@@ -10,7 +6,7 @@ class ProfilePage extends Component  {
     super(props);
     this.state = {
       // Initialize user if there's a token, otherwise null
-      profile : null
+      profile : this.componentDidUpdate
     };
   }
 
@@ -20,8 +16,20 @@ class ProfilePage extends Component  {
     this.setState({ profile }); 
    }
 
+shouldComponentUpdate() {
+  return this.state.profile._id !== this.props.match.params.id
+ }
+  
+ async componentDidUpdate() {
+  const profile = await this.props.getUserById(this.props.match.params.id)
+  this.setState({ profile }); 
+ }
+
+
 
 render(){
+
+  
     return (
       <div className='body'>       
       {this.state.profile  ?   

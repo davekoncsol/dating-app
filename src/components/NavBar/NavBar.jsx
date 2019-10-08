@@ -13,7 +13,9 @@ const NavBar = (props) => {
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
         <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <Link to={`/profile/${props.user._id}`} className='NavBar-link'>Profile</Link>
+        <Link to={`/profile/${props.user._id}`} className='NavBar-link'>My Profile</Link>
+        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <Link to={`/allprofiles/`} className='NavBar-link'>All Profiles</Link>
       </div>
       :
       <div className="NavBar">

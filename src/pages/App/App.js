@@ -7,6 +7,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
+import AllProfilesPage from '../AllProfilesPage/AllProfilesPage';
 
 class App extends Component {
   constructor() {
@@ -24,16 +25,23 @@ class App extends Component {
     this.setState({ user: null });
   }
 
+  
+  
+  
+  handleSignupOrLogin = () => {
+    this.setState({user: userService.getUser()});
+  }
+  
   getUserById = async id => {
    let profileUser = await userService.getUserBy(id);
    return profileUser
 
   }
 
-  handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()});
+  getAllUsers = async () => {
+    let profiles = await userService.getAllUsers();
+    return profiles
   }
-
 
 render() {
     return (
@@ -55,8 +63,16 @@ render() {
         getUserById={this.getUserById}
         
         />
-        
       }/>
+        <Route exact path="/allprofiles" render={(props) =>
+        <AllProfilesPage 
+        {...props}
+        user={this.state.user}
+        getAllUsers={this.getAllUsers}
+        
+        />
+        
+        }/>
         <Route exact path='/signup' render={({ history }) =>
           <SignupPage
             history={history}
