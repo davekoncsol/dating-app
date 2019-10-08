@@ -4,17 +4,16 @@ import React, { Component } from 'react';
 
 
 const ProfilePage = (props) => {
-
-// async function anything(){
-//     const profile = await props.profileUser(props.match.params.id)
-//     .then(res => res)
-// }
-
-
+    const profile = props.getUserById(props.match.params.id);
+    
+    console.log(props.profileUser)
+  
+  
 
     return (
       <div className='body'>
-          
+
+        
         <h3>Name:  </h3>
         <h3>Email: </h3>
         <h3></h3>

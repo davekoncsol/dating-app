@@ -52,7 +52,8 @@ render() {
         <ProfilePage 
         {...props}
         user={this.state.user}
-        profileUser={this.getUserById}
+        getUserById={this.getUserById}
+        profileUser={this.state.profileUser}
         />
         
       }/>
