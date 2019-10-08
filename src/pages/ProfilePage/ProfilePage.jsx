@@ -6,29 +6,30 @@ class ProfilePage extends Component  {
     super(props);
     this.state = {
       // Initialize user if there's a token, otherwise null
-      profile : this.componentDidUpdate
+      profile : 'c'
     };
   }
-
-
+  
+  
   async componentDidMount ()  {
     const profile = await this.props.getUserById(this.props.match.params.id)
     this.setState({ profile }); 
-   }
-
-shouldComponentUpdate() {
-  return this.state.profile._id !== this.props.match.params.id
- }
+    
+  }
   
- async componentDidUpdate() {
-  const profile = await this.props.getUserById(this.props.match.params.id)
-  this.setState({ profile }); 
- }
-
-
-
-render(){
-
+shouldComponentUpdate() {
+    return this.props.match.params.id !== this.state.profile._id
+   }
+  
+async  componentDidUpdate() {
+    const profile =  await this.props.getUserById(this.props.match.params.id)
+    this.setState({ profile }); 
+  }
+  
+  
+  
+  render(){
+    
   
     return (
       <div className='body'>       
