@@ -32,9 +32,15 @@ function getUserBy(id){
   
   return fetch(`${BASE_URL}/${id}`).then(res => res.json());
 
-
 }
 
+function update(user) {
+  return fetch(`${BASE_URL}/${user._id}`, {
+    method: 'PUT',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify(user)
+  }).then(res => res.json());
+}
 
 
 function logout() {
@@ -61,5 +67,6 @@ export default {
   logout,
   login,
   getUserBy,
-  getAllUsers
+  getAllUsers,
+  update
 };

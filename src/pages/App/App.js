@@ -8,6 +8,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
 import AllProfilesPage from '../AllProfilesPage/AllProfilesPage';
+import EditProfilePage from '../EditProfilePage/EditProfilePage';
+
 
 class App extends Component {
   constructor() {
@@ -27,10 +29,20 @@ class App extends Component {
 
   
   
-  
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
+
+  handleUpdateProfile = async updatedProfileData => {
+    const updatedProfile = await userService.update(updatedProfileData);
+    
+    this.setState(
+      {user: userService.getUser()},
+      // Using cb to wait for state to update before rerouting
+      () => this.props.history.push('/')
+    );
+  }
+
   
   getUserById = async id => {
    let profileUser = await userService.getUserBy(id);
@@ -85,6 +97,15 @@ render() {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
+      <Route exact path='/edit-profile' render={({ history, location }) => 
+            <EditProfilePage
+              history={history}
+              user={this.state.user}
+              handleUpdateProfile={this.handleUpdateProfile}
+              location={location}
+            />
+          }/>
+          
 
        <footer />
       </Switch>

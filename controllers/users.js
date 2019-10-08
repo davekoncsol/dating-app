@@ -6,8 +6,15 @@ module.exports = {
   signup,
   login,
   show,
-  allProfiles
+  allProfiles,
+  update
 };
+
+async function update(req, res) {
+  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
+  res.status(200).json(updatedUser);
+}
+
 
 async function allProfiles(req, res) {
   const profiles = await User.find({});

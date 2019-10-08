@@ -14,7 +14,7 @@ class ProfilePage extends Component  {
   async componentDidMount ()  {
     const profile = await this.props.getUserById(this.props.match.params.id)
     this.setState({ profile }); 
-    
+    console.log('component')
   }
   
 shouldComponentUpdate() {
@@ -29,7 +29,7 @@ async  componentDidUpdate() {
   
   
   render(){
-    
+    console.log('run')
   
     return (
       <div className='body'>       
