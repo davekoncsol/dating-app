@@ -26,7 +26,7 @@ class App extends Component {
 
   getUserById = async id => {
    let profileUser = await userService.getUserBy(id);
-   this.setState({profileUser})
+   return profileUser
 
   }
 
@@ -53,7 +53,7 @@ render() {
         {...props}
         user={this.state.user}
         getUserById={this.getUserById}
-        profileUser={this.state.profileUser}
+        
         />
         
       }/>
