@@ -16,7 +16,8 @@ class App extends Component {
     super();
     this.state = {
       // Initialize user if there's a token, otherwise null
-      user: userService.getUser()
+      user: userService.getUser(),
+      
     };
   }
 
@@ -74,6 +75,7 @@ render() {
         user={this.state.user}
         getUserById={this.getUserById}
         
+        
         />
       }/>
         <Route exact path="/allprofiles" render={(props) =>
@@ -81,6 +83,7 @@ render() {
         {...props}
         user={this.state.user}
         getAllUsers={this.getAllUsers}
+        
         
         />
         
@@ -103,6 +106,7 @@ render() {
               user={this.state.user}
               handleUpdateProfile={this.handleUpdateProfile}
               location={location}
+              
             />
           }/>
           

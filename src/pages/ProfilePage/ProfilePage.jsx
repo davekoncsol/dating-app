@@ -10,21 +10,29 @@ class ProfilePage extends Component  {
     };
   }
   
+  getParams()  {
+    return this.props.match.params.id
+  }
+
+  
   
   async componentDidMount ()  {
     const profile = await this.props.getUserById(this.props.match.params.id)
     this.setState({ profile }); 
-    console.log('component')
+    
+    
   }
   
-shouldComponentUpdate() {
-    return this.props.match.params.id !== this.state.profile._id
-   }
-  
+
+
+
 async  componentDidUpdate() {
+  console.log('hittin')
+  if(this.props.match.params.id !== this.state.profile._id ){
     const profile =  await this.props.getUserById(this.props.match.params.id)
     this.setState({ profile }); 
   }
+}
   
   
   
