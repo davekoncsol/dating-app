@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import UploadPhotos from '../../components/UploadPhotos/UploadPhotos'
+
 
 class EditProfilePage extends Component {
   state = {
@@ -22,6 +24,8 @@ class EditProfilePage extends Component {
       invalidForm: !this.formRef.current.checkValidity()
     });
   };
+
+ 
 
   render() {
    console.log(this.state.formData) 
@@ -46,7 +50,7 @@ class EditProfilePage extends Component {
               name="aboutMe"
               value={this.state.formData.aboutMe}
               onChange={this.handleChange}
-              required
+              
             />
           </div>
           <div className="form-group">
@@ -58,16 +62,6 @@ class EditProfilePage extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
-            <label>Images</label>
-            <input
-              className="form-control"
-              type="file"
-              name="images"
-              value={this.state.formData.images}
-              onChange={this.handleChange}
-            />
-          </div>
           <button
             type="submit"
             className="btn btn-xs"
@@ -75,6 +69,7 @@ class EditProfilePage extends Component {
           >
             SAVE Profile
           </button>&nbsp;&nbsp;
+          <UploadPhotos/>
           <Link to='/'>CANCEL</Link>
         </form>
       </>

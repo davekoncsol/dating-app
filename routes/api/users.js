@@ -5,6 +5,7 @@ const usersCtrl = require('../../controllers/users');
 
 /*---------- Public Routes ----------*/
 
+
 router.get('/', usersCtrl.allProfiles);
 router.get('/:id', usersCtrl.show);
 router.post('/signup', usersCtrl.signup);
