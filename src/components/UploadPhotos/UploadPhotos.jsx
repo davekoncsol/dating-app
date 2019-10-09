@@ -19,7 +19,7 @@ class UploadPhotos extends Component {
         'Content-Type': 'multipart/form-data'
       }
     }).then(response => {
-      // handle your response;
+      console.log(response.data.Location)
     }).catch(error => {
       // handle your error
     });

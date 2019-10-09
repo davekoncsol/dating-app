@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+import userService from '../../utils/userService';
 import UploadPhotos from '../../components/UploadPhotos/UploadPhotos'
 
 
@@ -9,6 +9,7 @@ class EditProfilePage extends Component {
     invalidForm: false,
     formData: this.props.user
   };
+
 
   formRef = React.createRef();
 
