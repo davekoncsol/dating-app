@@ -49,11 +49,21 @@ class EditProfilePage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pup's Age</label>
+            <label>Email</label>
             <input
               className="form-control"
               name="age"
               value={this.state.formData.email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Images</label>
+            <input
+              className="form-control"
+              type="file"
+              name="images"
+              value={this.state.formData.images}
               onChange={this.handleChange}
             />
           </div>

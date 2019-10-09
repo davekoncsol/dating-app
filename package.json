@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aws-sdk": "^2.546.0",
+    "axios": "^0.19.0",
     "bcrypt": "^3.0.5",
     "cluster": "^0.7.7",
     "dotenv": "^7.0.0",
