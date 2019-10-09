@@ -35,12 +35,11 @@ class App extends Component {
   }
 
   handleUpdateProfile = async updatedProfileData => {
-    const updatedProfile = await userService.update(updatedProfileData);
+   const updatedProfile= await userService.update(updatedProfileData);
     
     this.setState(
-      {user: userService.getUser()},
-      // Using cb to wait for state to update before rerouting
-      () => this.props.history.push('/')
+      {user: updatedProfile},
+      () => this.props.history.push(`/profile/${this.state.user._id}`)
     );
   }
 
@@ -57,6 +56,7 @@ class App extends Component {
   }
 
 render() {
+  console.log(this.state.user)
     return (
     <div className="App">
       <header className="App-header">

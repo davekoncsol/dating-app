@@ -12,6 +12,7 @@
     "mongodb": "^3.3.2",
     "mongoose": "^5.4.20",
     "morgan": "^1.9.1",
+    "nodemon": "^1.19.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^5.0.0",

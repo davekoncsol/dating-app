@@ -23,12 +23,13 @@ class EditProfilePage extends Component {
   };
 
   render() {
+   console.log(this.state.formData) 
     return (
       <>
         <h1>Edit Profile</h1>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Pup's Name (required)</label>
+            <label> Name (required)</label>
             <input
               className="form-control"
               name="name"
@@ -38,10 +39,10 @@ class EditProfilePage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pup's Breed (required)</label>
+            <label>About(required)</label>
             <input
               className="form-control"
-              name="breed"
+              name="aboutMe"
               value={this.state.formData.aboutMe}
               onChange={this.handleChange}
               required
