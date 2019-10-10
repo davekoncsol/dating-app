@@ -24,8 +24,6 @@ class ProfilePage extends Component  {
   }
   
 
-
-
 async  componentDidUpdate() {
   console.log('hittin')
   if(this.props.match.params.id !== this.state.profile._id ){
@@ -45,7 +43,17 @@ async  componentDidUpdate() {
       <div>   
         <h3>Name: {this.state.profile.name} </h3>
         <h3>Email: {this.state.profile.email} </h3>
-       </div>    
+
+    {this.state.profile.images ?
+    
+    this.state.profile.images.map(x => 
+      
+      <img src={`${x}`}></img>
+      
+      )
+      : <h1>no photos yet</h1>  
+    }
+    </div>    
 :
 <p>loading</p>
 }

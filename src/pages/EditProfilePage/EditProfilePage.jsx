@@ -29,9 +29,6 @@ class EditProfilePage extends Component {
         'Content-Type': 'multipart/form-data'
       }
     }).then(response => {
-      console.log(this.state.formData.images)
-      console.log(response.data.Location)
-      
       this.state.formData.images.push(response.data.Location)
       this.props.handleUpdateProfile(this.state.formData)
     }).catch(error => {
@@ -63,7 +60,8 @@ class EditProfilePage extends Component {
  
 
   render() {
-   console.log(this.state.formData) 
+   console.log(this.props.user) 
+   console.log(this.state.formData, "form data")
     return (
       <>
       <div>

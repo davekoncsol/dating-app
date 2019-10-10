@@ -21,10 +21,10 @@ class App extends Component {
     };
   }
 
-  // async componentDidMount ()  {
-  //   const user = await userService.getUserBy(userService.getUser().id)
-  //   this.setState({ user }); 
-  //  }
+  async componentDidMount ()  {
+    const user = await userService.getUserBy(userService.getUser())
+    this.setState({ user: user }); 
+   }
 
   handleDeleteProfile = async id => {
     await userService.deleteOne(id);
