@@ -19,6 +19,14 @@ function signup(user) {
   //.then((token) => token.token);
 }
 
+function deleteOne(id){
+  return fetch(`${BASE_URL}${id}`, {
+    method: 'DELETE'
+  }).then(res => res.json());
+
+}
+
+
 function getUser() {
   return tokenService.getUserFromToken();
 }
@@ -67,5 +75,6 @@ export default {
   login,
   getUserBy,
   getAllUsers,
-  update
+  update,
+  deleteOne
 };

@@ -13,15 +13,26 @@ import EditProfilePage from '../EditProfilePage/EditProfilePage';
 
 class App extends Component {
   constructor() {
-    super();
-    this.state = {
+     super();
+    this.state =  {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
       
     };
   }
 
+  // async componentDidMount ()  {
+  //   const user = await userService.getUserBy(userService.getUser().id)
+  //   this.setState({ user }); 
+  //  }
 
+  handleDeleteProfile = async id => {
+    await userService.deleteOne(id);
+    this.setState(state => ({
+      // Yay, filter returns a NEW array
+      user: null
+    }), () => this.props.history.push('/'));
+  }
 
   handleLogout = () => {
     userService.logout();
@@ -107,6 +118,7 @@ render() {
               user={this.state.user}
               handleUpdateProfile={this.handleUpdateProfile}
               location={location}
+              handleDeleteProfile={this.handleDeleteProfile}
               
             />
           }/>

@@ -10,6 +10,7 @@ router.get('/', usersCtrl.allProfiles);
 router.get('/:id', usersCtrl.show);
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
+router.delete('/:id', usersCtrl.deleteOne);
 router.put('/:id', usersCtrl.update);
 
 

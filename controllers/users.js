@@ -13,6 +13,7 @@ module.exports = {
   show,
   allProfiles,
   update,
+  deleteOne
   
 };
 
@@ -21,6 +22,10 @@ async function update(req, res) {
   res.status(200).json(updatedUser);
 }
 
+async function deleteOne(req, res) {
+  const deletedProfile = await User.findByIdAndRemove(req.params.id);
+  res.status(200).json(deletedProfile);
+}
 
 async function allProfiles(req, res) {
   const profiles = await User.find({});

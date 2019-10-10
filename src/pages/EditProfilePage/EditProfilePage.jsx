@@ -31,6 +31,7 @@ class EditProfilePage extends Component {
     }).then(response => {
       console.log(this.state.formData.images)
       console.log(response.data.Location)
+      
       this.state.formData.images.push(response.data.Location)
       this.props.handleUpdateProfile(this.state.formData)
     }).catch(error => {
@@ -110,11 +111,20 @@ class EditProfilePage extends Component {
         </form>
         </div>
         <div>
-        <form onSubmit={this.submitFile}>
-        <input label='upload file' type='file' onChange={this.handleFileUpload} />
-        <button type='submit'>Send</button>
-      </form>
+          <form onSubmit={this.submitFile}>
+             <input label='upload file' type='file' onChange={this.handleFileUpload} />
+              <button type='submit'>Send</button>
+         </form>
       </div>
+      <div>
+      <button
+          className='btn btn-xs btn-danger margin-left-10'
+          onClick={() => this.props.handleDeleteProfile(this.state.formData._id)}
+        >
+          DELETE
+        </button>
+      </div>
+
       </>
     );
   }
