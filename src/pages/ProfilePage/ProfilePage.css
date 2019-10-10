@@ -1,0 +1,13 @@
+.profile-full {
+    display: grid;
+}
+.profile-full-photos {
+    display: grid;
+    position: fixed;
+}
+
+img{
+    border-radius: 100%;
+    margin: 10px;
+ 
+}

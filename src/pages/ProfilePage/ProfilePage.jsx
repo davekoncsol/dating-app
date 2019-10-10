@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './ProfilePage.css';
 
 class ProfilePage extends Component  {
   constructor(props) {
@@ -9,11 +9,6 @@ class ProfilePage extends Component  {
       profile : 'c'
     };
   }
-  
-  getParams()  {
-    return this.props.match.params.id
-  }
-
   
   
   async componentDidMount ()  {
@@ -35,26 +30,37 @@ async  componentDidUpdate() {
   
   
   render(){
-    console.log('run')
+    
   
     return (
       <div className='body'>       
-      {this.state.profile  ?   
-      <div>   
-        <h3>Name: {this.state.profile.name} </h3>
-        <h3>Email: {this.state.profile.email} </h3>
-        <h3>About Me: {this.state.profile.aboutMe} </h3>
-
+    {this.state.profile  ?   
+        <div className="profile-full">  
+          <div> 
+            <h3>Name: {this.state.profile.name} </h3>
+            <h3>Email: {this.state.profile.email} </h3>
+            <h3>About Me: {this.state.profile.aboutMe} </h3>
+          </div>
     {this.state.profile.images ?
-    
-    this.state.profile.images.map(x => 
+          <div className="profile-full-photos">
+    {this.state.profile.images.map(x => 
       
-      <img src={`${x}`}></img>
+          <img src={`${x}`}></img>
       
-      )
-      : <h1>no photos yet</h1>  
-    }
-    </div>    
+      )}
+          </div>
+        : <h1>no photos yet</h1>  
+        }
+
+        {this.state.profile._id !== this.props.user._id ?
+          <div>
+            <h1>Message User</h1>
+          </div>
+        : <h1> Edit Profile</h1>
+
+        }
+
+        </div>    
 :
 <p>loading</p>
 }
