@@ -43,6 +43,7 @@ async  componentDidUpdate() {
       <div>   
         <h3>Name: {this.state.profile.name} </h3>
         <h3>Email: {this.state.profile.email} </h3>
+        <h3>About Me: {this.state.profile.aboutMe} </h3>
 
     {this.state.profile.images ?
     
