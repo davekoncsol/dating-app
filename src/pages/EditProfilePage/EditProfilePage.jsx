@@ -5,11 +5,19 @@ import UploadPhotos from '../../components/UploadPhotos/UploadPhotos'
 import axios from 'axios';
 
 class EditProfilePage extends Component {
-  state = {
-    invalidForm: false,
-    formData: this.props.user,
-    file: null
-  };
+  constructor (props) {
+    super(props);
+    this.state = {
+      invalidForm: false,
+      formData: this.props.user,
+      file: null
+
+    };
+  }
+  // state = {
+    
+  //   file: null
+  // };
 
 
   submitFile = (event) => {
@@ -21,7 +29,10 @@ class EditProfilePage extends Component {
         'Content-Type': 'multipart/form-data'
       }
     }).then(response => {
+      console.log(this.state.formData.images)
       console.log(response.data.Location)
+      this.state.formData.images.push(response.data.Location)
+      this.props.handleUpdateProfile(this.state.formData)
     }).catch(error => {
       // handle your error
     });
@@ -32,12 +43,12 @@ class EditProfilePage extends Component {
   }
 
 
-
   formRef = React.createRef();
 
   handleSubmit = e => {
     e.preventDefault();
     this.props.handleUpdateProfile(this.state.formData);
+    
   };
 
   handleChange = e => {
@@ -55,6 +66,7 @@ class EditProfilePage extends Component {
     return (
       <>
       <div>
+        
         <h1>Edit Profile</h1>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
