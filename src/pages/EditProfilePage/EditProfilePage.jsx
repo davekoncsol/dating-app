@@ -2,13 +2,35 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import userService from '../../utils/userService';
 import UploadPhotos from '../../components/UploadPhotos/UploadPhotos'
-
+import axios from 'axios';
 
 class EditProfilePage extends Component {
   state = {
     invalidForm: false,
-    formData: this.props.user
+    formData: this.props.user,
+    file: null
   };
+
+
+  submitFile = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('file', this.state.file[0]);
+    axios.post(`/test-upload`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then(response => {
+      console.log(response.data.Location)
+    }).catch(error => {
+      // handle your error
+    });
+  }
+
+  handleFileUpload = (event) => {
+    this.setState({file: event.target.files});
+  }
+
 
 
   formRef = React.createRef();
@@ -32,6 +54,7 @@ class EditProfilePage extends Component {
    console.log(this.state.formData) 
     return (
       <>
+      <div>
         <h1>Edit Profile</h1>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -70,9 +93,16 @@ class EditProfilePage extends Component {
           >
             SAVE Profile
           </button>&nbsp;&nbsp;
-          <UploadPhotos/>
+        
           <Link to='/'>CANCEL</Link>
         </form>
+        </div>
+        <div>
+        <form onSubmit={this.submitFile}>
+        <input label='upload file' type='file' onChange={this.handleFileUpload} />
+        <button type='submit'>Send</button>
+      </form>
+      </div>
       </>
     );
   }
