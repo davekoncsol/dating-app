@@ -55,6 +55,13 @@ async  componentDidUpdate() {
         {this.state.profile._id !== this.props.user._id ?
           <div>
             <h1>Message User</h1>
+
+            <form action="/" id="usrform">
+  
+           <input type="submit">
+            </input>
+              </form>
+              <textarea rows="4" cols="50" name="comment" form="usrform"></textarea>
           </div>
         : <h1> Edit Profile</h1>
 
