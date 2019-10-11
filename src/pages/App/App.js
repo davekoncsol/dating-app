@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   async componentDidMount ()  {
-    const user = await userService.getUserBy(userService.getUser())
+    const user = await userService.getUserBy(userService.getUser()._id)
     this.setState({ user: user }); 
    }
 
