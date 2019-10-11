@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar'
-import Body from '../../components/Body/Body'
+import Home from '../../components/Home/Home'
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
@@ -78,7 +78,7 @@ render() {
       </header>
       <Switch>
         <Route exact path='/' render={() =>
-          <Body />
+          <Home />
 
         }/>
         <Route exact path="/profile/:id" render={(props) =>
