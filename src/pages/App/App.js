@@ -71,11 +71,11 @@ render() {
   console.log(this.state.user)
     return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-header">
        <NavBar 
        user={this.state.user}
        handleLogout={this.handleLogout}/>
-      </header>
+      </div>
       <Switch>
         <Route exact path='/' render={() =>
           <Home />

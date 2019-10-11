@@ -25,9 +25,12 @@ const NavBar = (props) => {
       </div>;
   
     return (
+      
       <div className='NavBar'>
         {nav}
       </div>
+     
+      
     );
   };
 
