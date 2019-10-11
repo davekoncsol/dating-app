@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './ProfileCard.css'
 
 function ProfileCard({profile}){
     return (

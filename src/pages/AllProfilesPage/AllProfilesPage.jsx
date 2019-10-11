@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import './AllProfilePages.css'
 
 class AllProfilesPage extends Component  {
   constructor(props) {
@@ -21,12 +22,14 @@ render(){
     return (
       <div className='body'>       
       {this.state.profiles  ?   
-      this.state.profiles.map(profile =>
+      <div className='profile-list'>
+      {this.state.profiles.map(profile =>
       <ProfileCard
         key={profile._id}
         profile={profile}
       />
-    ) 
+    ) }
+    </div>
 :
 <p>loading</p>
 }
