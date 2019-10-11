@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ProfilePage.css';
+import Messaging from "../../components/Messaging/inbox"
 
 class ProfilePage extends Component  {
   constructor(props) {
@@ -57,12 +58,15 @@ async  componentDidUpdate() {
             <h1>Message User</h1>
 
             <form action="/" id="usrform">
-  
+              <input type="text"  name="comment" form="usrform"></input>
            <input type="submit">
             </input>
               </form>
-              <textarea rows="4" cols="50" name="comment" form="usrform"></textarea>
           </div>
+          // <Messaging />
+
+
+
         : <h1> Edit Profile</h1>
 
         }
