@@ -1,7 +1,6 @@
 import axios from 'axios';
-import cookie from 'react-cookie';
-import { logoutUser } from './auth';
-import { STATIC_ERROR, FETCH_USER } from './types';
+import userService from './userService'
+import { STATIC_ERROR, FETCH_USER, SEND_CONTACT_FORM } from './types';
 export const API_URL = 'http://localhost:3000/api';
 export const CLIENT_ROOT_URL = 'http://localhost:8080';
 
@@ -9,20 +8,20 @@ export const CLIENT_ROOT_URL = 'http://localhost:8080';
 // Utility actions
 //= ===============================
 
-export function fetchUser(uid) {
-  return function (dispatch) {
-    axios.get(`${API_URL}/user/${uid}`, {
-      headers: { Authorization: cookie.load('token') },
-    })
-    .then((response) => {
-      dispatch({
-        type: FETCH_USER,
-        payload: response.data.user,
-      });
-    })
-    .catch(response => dispatch(errorHandler(response.data.error)));
-  };
-}
+// export function fetchUser(uid) {
+//   return function (dispatch) {
+//     axios.get(`${API_URL}/user/${uid}`, {
+//       headers: { Authorization: cookie.load('token') },
+//     })
+//     .then((response) => {
+//       dispatch({
+//         type: FETCH_USER,
+//         payload: response.data.user,
+//       });
+//     })
+//     .catch(response => dispatch(errorHandler(response.data.error)));
+//   };
+// }
 
 export function errorHandler(dispatch, error, type) {
   console.log('Error type: ', type);
@@ -33,7 +32,7 @@ export function errorHandler(dispatch, error, type) {
    // NOT AUTHENTICATED ERROR
   if (error.status === 401 || error.response.status === 401) {
     errorMessage = 'You are not authorized to do this.';
-    return dispatch(logoutUser(errorMessage));
+    return dispatch(userService.logout(errorMessage));
   }
 
   dispatch({
@@ -48,7 +47,7 @@ export function postData(action, errorType, isAuthReq, url, dispatch, data) {
   let headers = {};
 
   if (isAuthReq) {
-    headers = { headers: { Authorization: cookie.load('token') } };
+    headers = { headers: { Authorization: 'token' } };
   }
 
   axios.post(requestUrl, data, headers)
@@ -69,7 +68,7 @@ export function getData(action, errorType, isAuthReq, url, dispatch) {
   let headers = {};
 
   if (isAuthReq) {
-    headers = { headers: { Authorization: cookie.load('token') } };
+    headers = { headers: { Authorization: 'token' } };
   }
 
   axios.get(requestUrl, headers)
@@ -90,7 +89,7 @@ export function putData(action, errorType, isAuthReq, url, dispatch, data) {
   let headers = {};
 
   if (isAuthReq) {
-    headers = { headers: { Authorization: cookie.load('token') } };
+    headers = { headers: { Authorization: 'token' } };
   }
 
   axios.put(requestUrl, data, headers)
@@ -111,7 +110,7 @@ export function deleteData(action, errorType, isAuthReq, url, dispatch) {
   let headers = {};
 
   if (isAuthReq) {
-    headers = { headers: { Authorization: cookie.load('token') } };
+    headers = { headers: { Authorization: 'token' } };
   }
 
   axios.delete(requestUrl, headers)
@@ -129,17 +128,3 @@ export function deleteData(action, errorType, isAuthReq, url, dispatch) {
 //= ===============================
 // Static Page actions
 //= ===============================
-export function sendContactForm({ name, emailAddress, message }) {
-  return function (dispatch) {
-    axios.post(`${API_URL}/communication/contact`, { name, emailAddress, message })
-    .then((response) => {
-      dispatch({
-        type: SEND_CONTACT_FORM,
-        payload: response.data.message,
-      });
-    })
-    .catch((error) => {
-      errorHandler(dispatch, error.response, STATIC_ERROR);
-    });
-  };
-}

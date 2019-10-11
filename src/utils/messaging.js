@@ -1,5 +1,5 @@
 import { reset } from 'redux-form';
-import { browserHistory } from 'react-router';
+
 import { getData, postData, putData, deleteData } from './index';
 import io from 'socket.io-client';
 import { CHAT_ERROR, FETCH_CONVERSATIONS, FETCH_RECIPIENTS, START_CONVERSATION, SEND_REPLY, FETCH_SINGLE_CONVERSATION } from './types';
@@ -29,7 +29,7 @@ export function startConversation({ recipient, composedMessage }) {
 
     // Clear form after message is sent
     dispatch(reset('composeMessage'));
-    browserHistory.push(`/dashboard/conversation/view/${response.data.conversationId}`);
+    this.history.push(`/dashboard/conversation/view/${dispatch.data.conversationId}`);
   };
 }
 
