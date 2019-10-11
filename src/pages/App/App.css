@@ -16,9 +16,10 @@ html *{
 }
 
 .App-header {
+  
   display: grid;
   background-color: #09d3ac;
-  position: absolute top;
+ 
 
 
 }
@@ -48,9 +49,7 @@ img {
   max-width: 10vmin ;
 }
 
-img:hover{
-  max-width: 50vmin;
-}
+
 
 .body {
   

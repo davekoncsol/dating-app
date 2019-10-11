@@ -5,10 +5,11 @@ import './ProfileCard.css'
 function ProfileCard({profile}){
     return (
         <>
+            <Link to={`/profile/${profile._id}`}>
         <div className="profile-card">
             <div>
-            Name : {profile.name}
-            <Link to={`/profile/${profile._id}`}>User Profile</Link>
+            {profile.name}
+            
             </div>
             {profile.images[0] ? 
             <img src={`${profile.images[0]}`}></img>
@@ -16,6 +17,7 @@ function ProfileCard({profile}){
 
             }
         </div>
+        </Link>
         </>
     )
     
