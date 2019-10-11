@@ -79,7 +79,7 @@ class EditProfilePage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>About(required)</label>
+            <label>About Me (required)</label>
             <input
               className="form-control"
               name="aboutMe"

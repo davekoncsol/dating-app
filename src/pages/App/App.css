@@ -44,14 +44,14 @@ html *{
 
 
 img {
-  max-width: 100px;
+  max-width: 10vmin ;
 }
 
 img:hover{
-  max-width: 400px;
+  max-width: 50vmin;
 }
 
 .body {
-  background: red;
+  
   min-height: 1000px;
 }

@@ -38,12 +38,13 @@ async  componentDidUpdate() {
     {this.state.profile  ?   
         <div className="profile-full">  
           <div> 
-            <h3>Name: {this.state.profile.name} </h3>
+            <h1>Meet {this.state.profile.name} </h1>
             <h3>Email: {this.state.profile.email} </h3>
             <h3>About Me: {this.state.profile.aboutMe} </h3>
           </div>
     {this.state.profile.images ?
           <div className="profile-full-photos">
+            <h1>Meet {this.state.profile.name} </h1>
     {this.state.profile.images.map(x => 
       
           <img src={`${x}`}></img>
