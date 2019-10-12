@@ -6,4 +6,21 @@ const ConversationSchema = new Schema({
   participants: [{ type: Schema.Types.ObjectId, ref: 'User'}],
 });
 
-module.exports = mongoose.model('Conversation', ConversationSchema);  
+
+
+const MessageSchema = new Schema({  
+  participants: [ConversationSchema],
+  conversationId: {
+    type: Schema.Types.ObjectId,
+    required: true
+  },
+  body: {
+    type: String,
+    required: true
+  },
+
+
+  timestamps: true // Saves createdAt and updatedAt as dates. createdAt will be our timestamp.
+});
+
+module.exports = mongoose.model('Conversation', MessageSchema);  
