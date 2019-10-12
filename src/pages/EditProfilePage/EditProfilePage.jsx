@@ -60,8 +60,7 @@ class EditProfilePage extends Component {
  
 
   render() {
-   console.log(this.props.user) 
-   console.log(this.state.formData, "form data")
+   
     return (
       <>
       <div>

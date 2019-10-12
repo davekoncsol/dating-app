@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ProfilePage.css';
-import ComposeMessage from "../../components/Messaging/compose-message"
+
 
 class ProfilePage extends Component  {
   constructor(props) {
@@ -56,17 +56,17 @@ async  componentDidUpdate() {
 
         {this.state.profile._id !== this.props.user._id ?
           <div>
-            <ComposeMessage />
+            
 
-            {/* <h1>Message User</h1>
+            <h1>Message User</h1>
 
             <form action="/" id="usrform">
               <input type="text"  name="comment" form="usrform"></input>
            <input type="submit">
             </input>
-              </form> */}
+              </form> 
           </div>
-          // <Messaging />
+          
 
 
 

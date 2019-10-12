@@ -29,7 +29,7 @@ class App extends Component {
   handleDeleteProfile = async id => {
     await userService.deleteOne(id);
     this.setState(state => ({
-      // Yay, filter returns a NEW array
+      
       user: null
     }), () => this.props.history.push('/'));
   }
