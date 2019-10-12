@@ -11,6 +11,9 @@ const fileType = require('file-type');
 const bluebird = require('bluebird');
 const multiparty = require('multiparty');
 
+// socket.io needs to connect to http server
+const http = require('http').Server(app);
+require('./io').init(http);
 
 
 require('dotenv').config();
@@ -81,6 +84,11 @@ app.get('/*', function(req, res) {
 // development to avoid collision with React's dev server
 const port = process.env.PORT || 3001;
 
-app.listen(port, function() {
-  console.log(`Express app running on port ${port}`)
+// app.listen(port, function() {
+//   console.log(`Express app running on port ${port}`)
+// });
+
+// Tell HTTP server to listen
+http.listen(port, function() {
+  console.log(`Listening on port ${port}`);
 });

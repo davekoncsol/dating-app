@@ -9,7 +9,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
 import AllProfilesPage from '../AllProfilesPage/AllProfilesPage';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
-
+import socket from '../../socket';
 
 class App extends Component {
   constructor() {
@@ -17,13 +17,17 @@ class App extends Component {
     this.state =  {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
+      conversation: null,
       
     };
   }
 
   async componentDidMount ()  {
+    socket.registerApp(this);
     const user = await userService.getUser();
+    if(user) {
     this.setState({ user: user }); 
+    }
    }
 
   handleDeleteProfile = async id => {

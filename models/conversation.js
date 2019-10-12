@@ -1,26 +1,39 @@
-const mongoose = require('mongoose'),  
-      Schema = mongoose.Schema;
+const mongoose = require('mongoose'); 
+    
 
 // Schema defines how chat messages will be stored in MongoDB
-const ConversationSchema = new Schema({  
-  participants: [{ type: Schema.Types.ObjectId, ref: 'User'}],
+const conversationSchema = new mongoose.Schema({  
+  profileId: String,
+  participants: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 
 
-const MessageSchema = new Schema({  
-  participants: [ConversationSchema],
+const messageSchema = new mongoose.Schema({  
+  participants: [conversationSchema],
   conversationId: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     required: true
   },
   body: {
     type: String,
     required: true
-  },
+  }},
+   {
+  timestamps: true 
+  });
 
 
-  timestamps: true // Saves createdAt and updatedAt as dates. createdAt will be our timestamp.
-});
+messageSchema.statics.getActiveForUser = function(user) {
+  return this.findOne({'participants.participants': user._id});
+}
 
-module.exports = mongoose.model('Conversation', MessageSchema);  
+messageSchema.statics.createForUser = async function(user) {
+  const message = new this();
+  message.participants.push({profileId: profile._id, participants: user._id});
+  await message.save();
+  return Promise.resolve(message);
+}
+
+
+module.exports = mongoose.model('Conversation', messageSchema);  
