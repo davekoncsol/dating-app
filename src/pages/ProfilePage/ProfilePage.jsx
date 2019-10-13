@@ -7,7 +7,8 @@ class ProfilePage extends Component  {
     super(props);
     this.state = {
       // Initialize user if there's a token, otherwise null
-      profile : 'c'
+      profile : 'c',
+      formData:  {message: ''}
     };
   }
   
@@ -29,6 +30,25 @@ async  componentDidUpdate() {
 }
   
   
+
+formRef = React.createRef();
+
+handleMessage = e => {
+  e.preventDefault();
+  console.log(this.state.formData)
+  this.props.handleMessage(this.state.formData);
+  
+};
+
+handleChange = e => {
+  const formData = {...this.state.formData, [e.target.name]: e.target.value};
+  this.setState({
+    formData,
+    invalidForm: !this.formRef.current.checkValidity()
+  });
+};
+
+
   
   render(){
     
@@ -58,12 +78,24 @@ async  componentDidUpdate() {
           <div>
             
 
-            <h1>Message User</h1>
+           
 
-            <form action="/" id="usrform">
-              <input type="text"  name="comment" form="usrform"></input>
-           <input type="submit">
-            </input>
+            <form ref={this.formRef} autoComplete="off" onSubmit={this.handleMessage}>
+            <label>Message User</label>
+            <input
+              className="form-control"
+              name="message"
+              value={this.state.formData.message}
+              onChange={this.handleChange}
+              
+            />
+           <button
+            type="submit"
+            className="btn btn-xs"
+            disabled={this.state.invalidForm}
+          >
+            Send Message
+          </button>
               </form> 
           </div>
           

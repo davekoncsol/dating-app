@@ -49,6 +49,14 @@ function update(user) {
   }).then(res => res.json());
 }
 
+function message(message) {
+  return fetch(`/api/users/${message._id}`, {
+    method: 'PUT',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify(message)
+  }).then(res => res.json());
+}
+
 
 function logout() {
   tokenService.removeToken();

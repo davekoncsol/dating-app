@@ -9,7 +9,7 @@ function registerApp(app) {
 }
 
 /*--- Listeners for messages from server ---*/
-socket.on('update-game', function(conversation) {
+socket.on('update-messages', function(conversation) {
   App.setState({conversation});
 });
 
@@ -17,12 +17,12 @@ socket.on('update-game', function(conversation) {
 
 /*--- Functions that send messages to the server ---*/
 function getActive() {
-  socket.emit('get-active', tokenService.getToken());
+  socket.emit('get-conversations', tokenService.getToken());
 }
 
 
 function newConversation() {
-  socket.emit('new-conversatiopn', tokenService.getToken());
+  socket.emit('new-conversation', tokenService.getToken());
 }
 
 function joinConversation(conversationId) {

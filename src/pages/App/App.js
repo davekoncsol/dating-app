@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   async componentDidMount ()  {
-    socket.registerApp(this);
+    // socket.registerApp(this);
     const user = await userService.getUser();
     if(user) {
     this.setState({ user: user }); 
@@ -44,9 +44,20 @@ class App extends Component {
   }
 
   
+
   
   handleSignupOrLogin = () => {
+    
     this.setState({user: userService.getUser()});
+  }
+
+  handleMessage = async messageData => {
+    const message = await userService.message(messageData)
+    this.setState(
+      {conversation: message},
+      () => this.props.history.push(`/`)
+    )
+
   }
 
   handleUpdateProfile = async updatedProfileData => {
@@ -90,6 +101,7 @@ render() {
         {...props}
         user={this.state.user}
         getUserById={this.getUserById}
+        handleMessage={this.handleMessage}
         
         
         />
