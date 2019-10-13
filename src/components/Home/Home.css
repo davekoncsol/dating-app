@@ -1,11 +1,11 @@
 .home-top-image {
     display: flex;
 
-    height: 600px;
-    background: url('../../images/glasses.jpg');
+    height: 450px;
+    background: url('../../images/man-people-girl-woman-glove-photography-997731-pxhere.com.jpg');
     background-attachment: fixed;
     background-size: cover;
-    background-position: center -100px ;
+    background-position: center ;
     
     
 }
@@ -14,20 +14,20 @@
     display: flex;
 
     height: 500px;
-    background: url('../../images/moutain-couple.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center -300px;
+    background: url('../../images/affection-black-black-and-white-couple-dark-embrace-1550523-pxhere.com.jpg');
+    background-attachment: fixed ;
+    background-size: cover ;
+    background-position: center ;
 }
 
 .home-bottom-image {
     display: flex;
 
     height: 600px;
-    background: url('../../images/old couple.jpg');
+    background: url('../../images/people-old-monument-statue-love-portrait-1070265-pxhere.com.jpg');
     background-attachment: fixed;
     background-size: cover;
-    background-position-y: bottom ;
+    background-position: center  ;
     
 }
 
@@ -35,7 +35,7 @@
 .home-content-1 {
     display: flex;
 
-    height: 300px;
+    height: 200px;
     background: white;
     background-attachment: fixed;
     background-size: cover;
@@ -44,7 +44,7 @@
 .home-content-2 {
     display: flex;
 
-    height: 300px;
+    height: 200px;
     background:white;
     background-attachment: fixed;
     background-size: cover;
@@ -53,7 +53,7 @@
 .home-content-3 {
     display: flex;
 
-    height: 300px;
+    height: 100px;
     background: rgba(red, rgba(0, 128, 0, 0), blue, alpha);
     background-attachment: fixed;
     background-size: cover;
