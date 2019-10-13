@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-
+import heartlogo from '../../images/hearts-43887_1280.png'
 
 const NavBar = (props) => {
   
@@ -27,9 +27,10 @@ const NavBar = (props) => {
     return (
       
       <div className='NavBar'>
+        <img src={`${heartlogo}`}/>
         {nav}
       </div>
-     
+
       
     );
   };
