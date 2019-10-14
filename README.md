@@ -35,6 +35,8 @@
 * React
 * Node.js
 * SOCKET.IO
+* MONGODB
+
 
 
 
