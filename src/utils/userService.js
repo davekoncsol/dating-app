@@ -68,10 +68,16 @@ function newMessage(message) {
    senderConversations.then(res => res.push(res1._id))
    console.log(senderConversations)
    senderConversations.then((res) => {
-
     let body = {conversations: res } 
     updateProfile(res1.sender, body)
    
+    let receiverConversations = getUserBy(res1.receiver).then(res=> res.conversations)
+    receiverConversations.then(res => res.push(res1._id))
+    console.log(receiverConversations)
+    receiverConversations.then((res) => {
+     let body2 = {conversations: res } 
+     updateProfile(res1.receiver, body2)
+    })
 
    })
     
