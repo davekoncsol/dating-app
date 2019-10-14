@@ -1,5 +1,7 @@
 .home-top-image {
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     height: 450px;
     background: url('../../images/man-people-girl-woman-glove-photography-997731-pxhere.com.jpg');
@@ -34,7 +36,8 @@
 
 .home-content-1 {
     display: flex;
-
+    justify-content: center;
+    align-items: center;
     height: 200px;
     background: white;
     background-attachment: fixed;
@@ -43,7 +46,8 @@
 }
 .home-content-2 {
     display: flex;
-
+    justify-content: center;
+    align-items: center;
     height: 200px;
     background:white;
     background-attachment: fixed;
@@ -52,10 +56,12 @@
 }
 .home-content-3 {
     display: flex;
-
+    justify-content: center;
+    align-items: center;
     height: 100px;
     background: rgba(red, rgba(0, 128, 0, 0), blue, alpha);
     background-attachment: fixed;
     background-size: cover;
     
 }
+
