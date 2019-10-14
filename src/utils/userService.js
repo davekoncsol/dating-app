@@ -63,14 +63,18 @@ function newMessage(message) {
     headers: new Headers({'Content-Type': 'application/json'}),
     body: JSON.stringify(message)
   }).then(res => res.json())
-  .then(res => {
-   
-    let body = {conversations: res._id }
-    updateProfile(res.sender, body)
+  .then(res1 => {
+   let senderConversations = getUserBy(res1.sender).then(res=> res.conversations)
+   senderConversations.then(res => res.push(res1._id))
+   console.log(senderConversations)
+   senderConversations.then((res) => {
+
+    let body = {conversations: res } 
+    updateProfile(res1.sender, body)
    
 
+   })
     
-    console.log(res)
   })
   
    
