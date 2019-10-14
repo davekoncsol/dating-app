@@ -65,7 +65,7 @@ function newMessage(message) {
   }).then(res => res.json())
   .then(res => {
    
-    let body = {conversations: [res._id] }
+    let body = {conversations: res._id }
     update2(res.sender, body)
    
 
