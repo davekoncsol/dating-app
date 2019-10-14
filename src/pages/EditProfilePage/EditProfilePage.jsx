@@ -109,18 +109,21 @@ class EditProfilePage extends Component {
         </form>
         </div>
         <div>
+          <label>Upload Photo!</label>
           <form onSubmit={this.submitFile}>
              <input label='upload file' type='file' onChange={this.handleFileUpload} />
               <button type='submit'>Send</button>
          </form>
       </div>
       <div>
+        <div>
       <button
           className='btn btn-xs btn-danger margin-left-10'
           onClick={() => this.props.handleDeleteProfile(this.state.formData._id)}
         >
-          DELETE
+          DELETE Profile
         </button>
+        </div>
       </div>
 
       </>
