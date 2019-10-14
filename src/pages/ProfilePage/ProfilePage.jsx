@@ -26,7 +26,7 @@ class ProfilePage extends Component  {
   
 
 async  componentDidUpdate() {
-  console.log('hittin')
+  
   if(this.props.match.params.id !== this.state.profile._id ){
     const profile =  await this.props.getUserById(this.props.match.params.id)
     this.setState({ profile }); 
@@ -41,7 +41,7 @@ handleMessage = e => {
   this.state.formData.receiver = this.state.profile._id;
   this.state.formData.sender = this.props.user._id 
   e.preventDefault();
-  console.log(this.state.formData)
+  
   this.props.handleMessage(this.state.formData);
   
 };

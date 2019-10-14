@@ -49,11 +49,11 @@ function update(user) {
   }).then(res => res.json());
 }
 
-function update2(user,two) {
+function updateProfile(user, body) {
   return fetch(`${BASE_URL}${user}`, {
     method: 'PUT',
     headers: {'content-type': 'application/json'},
-    body: JSON.stringify(two)
+    body: JSON.stringify(body)
   }).then(res => res.json());
 }
 
@@ -66,7 +66,7 @@ function newMessage(message) {
   .then(res => {
    
     let body = {conversations: res._id }
-    update2(res.sender, body)
+    updateProfile(res.sender, body)
    
 
     
