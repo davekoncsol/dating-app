@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ProfilePage.css';
+import userService from '../../utils/userService'
 
 
 class ProfilePage extends Component  {
@@ -8,7 +9,10 @@ class ProfilePage extends Component  {
     this.state = {
       // Initialize user if there's a token, otherwise null
       profile : 'c',
-      formData:  {message: ''}
+      formData:  {
+        message: '',
+        
+    }
     };
   }
   
@@ -34,11 +38,14 @@ async  componentDidUpdate() {
 formRef = React.createRef();
 
 handleMessage = e => {
+  this.state.formData.receiver = this.state.profile._id;
+  this.state.formData.sender = this.props.user._id 
   e.preventDefault();
-  console.log(this.state.formData)
   this.props.handleMessage(this.state.formData);
   
 };
+
+
 
 handleChange = e => {
   const formData = {...this.state.formData, [e.target.name]: e.target.value};

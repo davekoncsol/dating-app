@@ -50,21 +50,13 @@ function update(user) {
 }
 
 function newMessage(message) {
-  return fetch(`/api/conversations/`+'message', {
+  return fetch(`/api/conversations/message`, {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
     body: JSON.stringify(message)
   })
-  .then(res => {
-    if (res.ok) return res.json();
-    // Probably a duplicate email
-    throw new Error('Error');
-  })
-  // Parameter destructuring!
-  .then(res => res.json());
-  // The above could have been written as
-  //.then((token) => token.token);
-
+  .then(res => res.json())
+   
 }
 
 function message(message) {

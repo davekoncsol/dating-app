@@ -44,6 +44,7 @@ class EditProfilePage extends Component {
   formRef = React.createRef();
 
   handleSubmit = e => {
+   
     e.preventDefault();
     this.props.handleUpdateProfile(this.state.formData);
     

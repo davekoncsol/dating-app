@@ -2,21 +2,15 @@ const mongoose = require('mongoose');
     
 
 // Schema defines how chat messages will be stored in MongoDB
-const conversationSchema = new mongoose.Schema({  
-  profileId: String,
-  participants: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-});
 
 
 
 const messageSchema = new mongoose.Schema({  
-  participants: [conversationSchema],
-  conversationId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true
-  },
-  body: {
-    type: String,
+  sender: String,
+  receiver: String,
+ 
+  message: {
+    type: Array,
     required: true
   }},
    {

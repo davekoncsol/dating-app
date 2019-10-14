@@ -17,7 +17,7 @@ class App extends Component {
     this.state =  {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
-      conversation: null,
+      message: null,
       
     };
   }
@@ -54,7 +54,7 @@ class App extends Component {
   handleMessage = async messageData => {
     const message = await userService.newMessage(messageData)
     this.setState(
-      {conversation: message},
+      { message: message},
       () => this.props.history.push(`/`)
     )
 
