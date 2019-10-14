@@ -41,6 +41,7 @@ handleMessage = e => {
   this.state.formData.receiver = this.state.profile._id;
   this.state.formData.sender = this.props.user._id 
   e.preventDefault();
+  console.log(this.state.formData)
   this.props.handleMessage(this.state.formData);
   
 };

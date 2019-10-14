@@ -49,23 +49,45 @@ function update(user) {
   }).then(res => res.json());
 }
 
+function update2(user,two) {
+  return fetch(`${BASE_URL}${user}`, {
+    method: 'PUT',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify(two)
+  }).then(res => res.json());
+}
+
 function newMessage(message) {
   return fetch(`/api/conversations/message`, {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
     body: JSON.stringify(message)
+  }).then(res => res.json())
+  .then(res => {
+   
+    let body = {conversations: [res._id] }
+    update2(res.sender, body)
+   
+
+    
+    console.log(res)
   })
-  .then(res => res.json())
+  
    
 }
 
-function message(message) {
-  return fetch(`/api/conversations/${message._id}`, {
-    method: 'PUT',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify(message)
-  }).then(res => res.json());
-}
+// function message(message) {
+//   return fetch(`/api/conversations/${message._id}`, {
+//     method: 'PUT',
+//     headers: {'content-type': 'application/json'},
+//     body: JSON.stringify(message)
+//   })
+  
+//   .then(res => 
+//     res.json()
+//     );
+
+// }
 
 
 function logout() {
@@ -95,6 +117,6 @@ export default {
   getAllUsers,
   update,
   deleteOne,
-  message,
+ 
   newMessage
 };
