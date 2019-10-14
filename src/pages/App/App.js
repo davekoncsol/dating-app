@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   handleMessage = async messageData => {
-    const message = await userService.message(messageData)
+    const message = await userService.newMessage(messageData)
     this.setState(
       {conversation: message},
       () => this.props.history.push(`/`)

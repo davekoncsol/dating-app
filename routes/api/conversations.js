@@ -10,7 +10,8 @@ const convosCtrl = require('../../controllers/conversations');
 
 
 
-router.put('/:id', convosCtrl.update);
+// router.put('/:id', convosCtrl.message);
+router.post('/message', convosCtrl.newMessage);
 
 
 

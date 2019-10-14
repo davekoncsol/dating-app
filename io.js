@@ -26,7 +26,7 @@ function init(http) {
       // they login
 
       //will open up to see if user has message historu
-      socket.on('get-active', async function(token) {
+      socket.on('get-conversations', async function(token) {
         const user = await validateToken(token);
         if (!user) return;
         let conversation = findConversationInMemory(user);
@@ -39,6 +39,8 @@ function init(http) {
           });
         }
       });
+
+      
   
       // Player clicked to start a new game and will be "moved"
       // to WaitingPage

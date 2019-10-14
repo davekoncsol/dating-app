@@ -49,8 +49,26 @@ function update(user) {
   }).then(res => res.json());
 }
 
+function newMessage(message) {
+  return fetch(`/api/conversations/`+'message', {
+    method: 'POST',
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: JSON.stringify(message)
+  })
+  .then(res => {
+    if (res.ok) return res.json();
+    // Probably a duplicate email
+    throw new Error('Error');
+  })
+  // Parameter destructuring!
+  .then(res => res.json());
+  // The above could have been written as
+  //.then((token) => token.token);
+
+}
+
 function message(message) {
-  return fetch(`/api/users/${message._id}`, {
+  return fetch(`/api/conversations/${message._id}`, {
     method: 'PUT',
     headers: {'content-type': 'application/json'},
     body: JSON.stringify(message)
@@ -84,5 +102,7 @@ export default {
   getUserBy,
   getAllUsers,
   update,
-  deleteOne
+  deleteOne,
+  message,
+  newMessage
 };
