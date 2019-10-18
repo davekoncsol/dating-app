@@ -2,6 +2,7 @@
 
 html *{
   font-family: 'Open Sans', sans-serif;
+  
 }
 
 .App {
@@ -16,7 +17,8 @@ html *{
 }
 
 .App-header {
-  
+  position: fixed;
+  width:100%;
   display: grid;
   background-color: #09d3ac;
 
@@ -28,6 +30,7 @@ html *{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  color: white;
 }
 
 .NavBar  * {
@@ -54,4 +57,19 @@ img {
 .body {
   
   min-height: 1000px;
+  margin-top:60px;
+  
+}
+
+.NavBar a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+a{
+  text-decoration: none;
 }

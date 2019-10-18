@@ -29,7 +29,9 @@ const NavBar = (props) => {
     return (
       
       <div className='NavBar'>
+        <Link to='/'>
         <img src={`${heartlogo}`}/>
+        </Link>
         {nav}
       </div>
 
