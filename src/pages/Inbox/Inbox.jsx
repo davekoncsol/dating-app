@@ -5,13 +5,13 @@ import './Inbox.css'
 function Inbox({user}){
     return (
         <>
+       <div className="body">
        { console.log(user)}
             {user.conversations.map(convo =>
-        <div className="inbox">
             <h1>{convo}</h1>
          
-        </div>
-        )}
+            )}
+            </div>
         </>
     )
     

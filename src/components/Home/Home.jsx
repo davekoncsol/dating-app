@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css"
+import {Link} from 'react-router-dom'
 
 
 function Body(props) {
@@ -13,13 +14,15 @@ function Body(props) {
             </div>
             <div className="home-middle-image"></div>
             <div className="home-content-2">
-            <h1>SOMEONE THAT GETS YOU FOR WHO YOU ARE</h1>
+            <h1>SOMEONE THAT WILL LAST A LIFETIME</h1>
             </div>
             <div className="home-bottom-image"></div>
             <div className="home-content-3">
-            <h1>SOMEONE THAT WILL LAST A LIFETIME</h1>
+            
             </div>
+            <Link to='/signup'>
             <h1>SIGN UP NOW</h1>
+            </Link>
         </div>
     );
 }
