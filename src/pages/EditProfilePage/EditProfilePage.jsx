@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import userService from '../../utils/userService';
 import UploadPhotos from '../../components/UploadPhotos/UploadPhotos'
 import axios from 'axios';
+import './EditProfilePage.css'
 
 class EditProfilePage extends Component {
   constructor (props) {
@@ -64,7 +65,7 @@ class EditProfilePage extends Component {
    
     return (
       <>
-      <div>
+      <div className="body editprofile">
         
         <h1>Edit Profile</h1>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
@@ -107,8 +108,8 @@ class EditProfilePage extends Component {
         
           <Link to='/'>CANCEL</Link>
         </form>
-        </div>
-        <div>
+        
+      <div>
           <label>Upload Photo!</label>
           <form onSubmit={this.submitFile}>
              <input label='upload file' type='file' onChange={this.handleFileUpload} />
@@ -125,7 +126,7 @@ class EditProfilePage extends Component {
         </button>
         </div>
       </div>
-
+      </div>
       </>
     );
   }
