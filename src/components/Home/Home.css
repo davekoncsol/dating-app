@@ -14,6 +14,9 @@
 }
 
 .home-top-image h1 {
+    display: flex;
+    align-items: center;
+    text-align: left;
     width: 300px;
     height: 150px;
     background:#09d3ab4f;
@@ -22,18 +25,22 @@
     -webkit-border-radius: 10px;
     border-radius: 10px;
     transform: translate(-50px, 0);
+    color:white;
+     padding: 10px;
+        margin: 0;
 }
 
 .home-top-image h1::after{
     content: "";
     position: absolute;
     left: 100%;
-    top: 26px;
+    bottom: 20px;
     width: 0;
     height: 0;
     border-top: 13px solid transparent;
     border-left: 26px solid #09d3ab4f;;
     border-bottom: 13px solid transparent;
+   
   
 
 }
@@ -70,13 +77,17 @@
     background-position: center ;
 
     background-size: cover;
+    
+    background-position-y: 0px;
 
    
     
 }
 
 .home-content-1 h1{
-    
+        display: flex;
+        align-items: center;
+        text-align: left;
         width: 300px;
         height: 150px;
         background:#09d3ab4f;;
@@ -85,6 +96,9 @@
         -webkit-border-radius: 10px;
         border-radius: 10px;
         transform: translate(50px, 0);
+        color:white;
+        padding: 10px;
+        margin: 0;
     
 }
 
@@ -92,7 +106,7 @@
     content: "";
     position: absolute;
     right: 100%;
-    top: 26px;
+    bottom: 20px;
     width: 0;
     height: 0;
     border-top: 13px solid transparent;
