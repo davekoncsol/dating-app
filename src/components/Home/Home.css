@@ -24,7 +24,7 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    transform: translate(-50px, 0);
+    transform: translate(-50px, -100px);
     color:white;
      padding: 10px;
         margin: 0;
@@ -47,6 +47,8 @@
 
 .home-middle-image {
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
     height: 500px;
     background: url('../../images/affection-black-black-and-white-couple-dark-embrace-1550523-pxhere.com.jpg');
@@ -54,6 +56,37 @@
     background-size: cover ;
     background-position: center ;
 }
+
+.home-middle-image h1{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 300px;
+    height: 150px;
+    background:#09d3ab4f;;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    transform: translate(-50px, 0);
+    color:white;
+    padding: 10px;
+    margin: 0;
+
+}
+
+.home-middle-image h1:before {
+content: "";
+position: absolute;
+left: 100%;
+bottom: 20px;
+width: 0;
+height: 0;
+border-top: 13px solid transparent;
+border-left: 26px solid #09d3ab4f;;
+border-bottom: 13px solid transparent;
+}
+
 
 .home-bottom-image {
     display: flex;
@@ -75,13 +108,10 @@
     background: url('../../images/man-people-girl-woman-glove-photography-997731-pxhere.com.jpg');
     background-attachment: fixed;
     background-position: center ;
-
     background-size: cover;
-    
     background-position-y: 0px;
 
    
-    
 }
 
 .home-content-1 h1{
