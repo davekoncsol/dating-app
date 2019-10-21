@@ -1,7 +1,7 @@
 .home-top-image {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 
     height: 450px;
     background: url('../../images/man-people-girl-woman-glove-photography-997731-pxhere.com.jpg');
@@ -11,6 +11,31 @@
     background-position-y: 0px;
     
     
+}
+
+.home-top-image h1 {
+    width: 300px;
+    height: 150px;
+    background:#09d3ab4f;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    transform: translate(-50px, 0);
+}
+
+.home-top-image h1::after{
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 26px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 26px solid #09d3ab4f;;
+    border-bottom: 13px solid transparent;
+  
+
 }
 
 .home-middle-image {
@@ -37,14 +62,41 @@
 
 .home-content-1 {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 200px;
-    background: white;
+    background: url('../../images/man-people-girl-woman-glove-photography-997731-pxhere.com.jpg');
     background-attachment: fixed;
     background-size: cover;
+
+   
     
 }
+
+.home-content-1 h1{
+    
+        width: 300px;
+        height: 150px;
+        background:#09d3ab4f;;
+        position: relative;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        transform: translate(50px, 0);
+    
+}
+
+.home-content-1 h1:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 26px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 26px solid #09d3ab4f;;
+    border-bottom: 13px solid transparent;
+  }
 .home-content-2 {
     display: flex;
     justify-content: center;
@@ -65,4 +117,6 @@
     background-size: cover;
     
 }
+
+
 

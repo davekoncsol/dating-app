@@ -18,11 +18,11 @@ function Body(props) {
             </div>
             <div className="home-bottom-image"></div>
             <div className="home-content-3">
-            
-            </div>
             <Link to='/signup'>
             <h1>SIGN UP NOW</h1>
             </Link>
+            </div>
+            
         </div>
     );
 }
