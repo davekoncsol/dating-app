@@ -6,12 +6,9 @@ function Inbox({user, getConversationById}){
     return (
         <>
        <div className="body">
-       { console.log(user)}
-            {user.conversations.map(convo => {
-        {console.log(getConversationById(convo)) }
-            }
-         
-            )}
+            {user.conversations.map(convo => 
+        <h1>{getConversationById(convo).then(res=>res.message)}</h1>
+        )}
             </div>
         </>
     )
