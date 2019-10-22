@@ -19,6 +19,7 @@ class App extends Component {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
       message: null,
+      conversations: []
       
     };
   }
@@ -26,8 +27,14 @@ class App extends Component {
   async componentDidMount ()  {
     // socket.registerApp(this);
     const user = await userService.getUser();
+  
     if(user) {
-    this.setState({ user: user }); 
+    this.setState({ 
+      user: user,  
+    });
+      if(user.conversations){
+        this.state.user.conversations.map(convo=> this.getConversationById(convo).then(res => this.state.conversations.push(res)))
+       }
     }
    }
 
@@ -148,7 +155,8 @@ render() {
           <Inbox
             history={history}
             user={this.state.user}
-            getConversationById={this.getConversationById}
+            getUserById={this.getUserById}
+            conversations={this.state.conversations}
             />
         }/>
           
