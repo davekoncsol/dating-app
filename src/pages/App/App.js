@@ -46,6 +46,7 @@ class App extends Component {
 
   
 
+
   
   handleSignupOrLogin = () => {
     
@@ -71,6 +72,10 @@ class App extends Component {
   }
 
   
+  getConversationById = async id => {
+    let conversation = await userService.getConversationById(id);
+    return conversation
+  }
 
   getUserById = async id => {
    let profileUser = await userService.getUserBy(id);
@@ -143,6 +148,7 @@ render() {
           <Inbox
             history={history}
             user={this.state.user}
+            getConversationById={this.getConversationById}
             />
         }/>
           

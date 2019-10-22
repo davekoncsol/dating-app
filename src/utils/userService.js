@@ -41,6 +41,12 @@ function getUserBy(id){
 
 }
 
+function getConversationById(id){
+  return fetch(`/api/conversations/${id}`).then(res=>
+    
+    res.json())
+}
+
 function update(user) {
   return fetch(`${BASE_URL}${user._id}`, {
     method: 'PUT',
@@ -127,6 +133,6 @@ export default {
   getAllUsers,
   update,
   deleteOne,
- 
+  getConversationById,
   newMessage
 };

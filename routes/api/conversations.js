@@ -12,6 +12,7 @@ const convosCtrl = require('../../controllers/conversations');
 
 // router.put('/:id', convosCtrl.message);
 router.post('/message', convosCtrl.newMessage);
+router.get('/:id', convosCtrl.getConversations);
 
 
 

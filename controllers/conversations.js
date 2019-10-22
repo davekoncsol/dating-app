@@ -1,7 +1,8 @@
 const Conversation = require('../models/conversation');
 
 module.exports ={
-    newMessage
+    newMessage,
+    getConversations
 }
 
 async function newMessage (req, res) {
@@ -16,4 +17,11 @@ async function newMessage (req, res) {
         }
       
 
+}
+
+
+async function getConversations(req, res) {
+  console.log(req.params.id, "request")
+  const conversation = await Conversation.findById(req.params.id);
+  res.status(200).json(conversation);  
 }
