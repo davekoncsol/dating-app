@@ -33,7 +33,7 @@ class Inbox extends Component {
         };
       }
 
-async componentWillMount() {
+async componentDidMount() {
     if(this.props.conversations){
         let convos = []
          await this.props.conversations.map(convo => 
@@ -54,23 +54,24 @@ async componentWillMount() {
 
 render() {
     return(
-       
+       <>
         <div className='body'>
            
             {console.log(this.state.conversations)}
         {this.state.conversations.map(convo => 
-        {console.log(convo[0].receiver)}
-    //  <div>
-    //  <h1>{convo[0].receiver}</h1>
+        <div>
+
+      <img src ={`${convo[1]}`}></img>
+     <h1>{convo[0].message}</h1>
           
     
            
                
-    //     </div>
-        )}
+        </div>
+          )}
 
         </div>
-        
+        </>
     )
 
 
