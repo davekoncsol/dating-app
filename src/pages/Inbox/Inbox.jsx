@@ -39,7 +39,7 @@ async componentDidMount() {
          await this.props.conversations.map(convo => 
               this.props.getUserById(convo.receiver).then(res =>
                 
-              [convo , res.images[0]]
+              [convo , res]
                ).then(res=> 
                 convos.push(res)
                      
@@ -61,8 +61,9 @@ render() {
         {this.state.conversations.map(convo => 
         <div>
 
-      <img src ={`${convo[1]}`}></img>
-     <h1>{convo[0].message}</h1>
+      <img src ={`${convo[1].images[0]}`}></img>
+
+     <h1>{convo[1].name}</h1>
           
     
            

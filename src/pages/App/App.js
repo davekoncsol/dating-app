@@ -152,12 +152,15 @@ render() {
             />
           }/>
            <Route exact path='/inbox' render={({ history }) =>
-          <Inbox
-            history={history}
-            user={this.state.user}
-            getUserById={this.getUserById}
-            conversations={this.state.conversations}
-            />
+            <div className="body">
+           <h1>Coming Soon</h1>
+           </div>
+          // <Inbox
+          //   history={history}
+          //   user={this.state.user}
+          //   getUserById={this.getUserById}
+          //   conversations={this.state.conversations}
+          //   />
         }/>
           
 
