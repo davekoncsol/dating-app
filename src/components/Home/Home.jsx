@@ -7,13 +7,13 @@ function Body(props) {
     return (
         <div className='body'>
             <div className="home-top-image">
-                <h1>FIND SOMEONE FOR YOU</h1>
+                <h1>Find someone for you</h1>
             </div>
             <div className="home-content-1">
-                <h1>SOMEONE THAT GETS YOU FOR WHO YOU ARE</h1>
+                <h1>Someone that gets you for who you are</h1>
             </div>
             <div className="home-middle-image">
-            <h1>SOMEONE THAT WILL LAST A LIFETIME</h1>
+            <h1>Someone that will last a lifetime</h1>
             </div>
             {/* <div className="home-content-2">
             
