@@ -3,9 +3,9 @@
 <img src='https://i.imgur.com/FEAGGm4.png'>
 
 
-## How To User
+## How To Use
 
-<p> Sign up to create a profile. Then browse other users to message them
+<p> Sign up to create a profile. Then browse other users to message them.
 
 
 
