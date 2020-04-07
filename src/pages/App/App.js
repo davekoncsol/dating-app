@@ -9,7 +9,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
 import AllProfilesPage from '../AllProfilesPage/AllProfilesPage';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
-import Inbox from '../Inbox/Inbox'
+import Inbox from '../Inbox/Inbox';
 // import socket from '../../socket';
 
 class App extends Component {
