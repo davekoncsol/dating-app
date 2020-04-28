@@ -68,10 +68,32 @@ async function login(req, res) {
 
 /*----- Helper Functions -----*/
 
+
+
+// function createJWT(user) {
+//   return jwt.sign(
+//     {user}, // data payload
+//     SECRET,
+//     {expiresIn: '24h'}
+
+//   );
+
+// }
+
 function createJWT(user) {
-  return jwt.sign(
-    {user}, // data payload
-    SECRET,
-    {expiresIn: '24h'}
-  );
-}
+  
+    return jwt.sign(
+      { user,
+       sub: user.id,
+       name: user.name,
+       email: user.email,
+       iss: 'http://localhost:3000/',
+
+
+      }, // data payload
+      SECRET,
+      {expiresIn: '24h'}
+  
+    );
+  
+  }

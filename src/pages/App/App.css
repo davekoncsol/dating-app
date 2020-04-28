@@ -5,6 +5,40 @@ html *{
   
 }
 
+
+.weavy-widget {
+  width: 100%;
+  height: calc(100% - 40px);
+  font-family: Avenir Next W02,Helvetica,Arial,sans-serif;
+}
+
+
+.widget-drawer {
+  z-index: 1042;
+  position: fixed;
+  top: 73px;
+  
+  background: white;
+  transition: transform, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  right: 0;
+  width: 400px;
+  height: calc(100% - 68px);
+  transform: translateX(400px);
+  pointer-events: none;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+  .widget-drawer.widget-drawer-in {
+      transform: none;
+      border-left: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+  }
+
 .App {
   text-align: center;
   display: grid;

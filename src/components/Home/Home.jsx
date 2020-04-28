@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 
 function Body(props) {
     return (
+       
         <div className='body'>
             <div className="home-top-image">
                 <h1>Find someone for you</h1>

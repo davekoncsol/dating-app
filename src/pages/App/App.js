@@ -9,29 +9,61 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
 import AllProfilesPage from '../AllProfilesPage/AllProfilesPage';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
-import Inbox from '../Inbox/Inbox';
+import tokenService from '../../utils/tokenService';
+//import  './weavy-6.2.0+weavy.3f73d1d39.js';
+require('jquery');
+const Weavy = window.Weavy;
+
+
+
 // import socket from '../../socket';
 
+
+
+
 class App extends Component {
+
+  
   constructor() {
      super();
     this.state =  {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
       message: null,
-      conversations: []
+      conversations: [],
+
+      
       
     };
   }
+  
 
   async componentDidMount ()  {
     // socket.registerApp(this);
     const user = await userService.getUser();
   
     if(user) {
+      console.log(tokenService.getToken());
     this.setState({ 
-      user: user,  
+      user: user, 
+      weavy: new Weavy({
+        jwt: tokenService.getToken(),
+        spaces: [
+            {
+              key: "main",
+              container: ".weavy-widget",
+              toggled: true,
+              apps: [
+                 { type: "messenger", key: "main-messenger", },
+                 { type: "notifications", key: "main-notifications", },
+                 { type: "posts", key: "main-hub", name: "Hub", },
+           
+              ]
+            }
+          ]
+      }) ,
     });
+    
       if(user.conversations){
         this.state.user.conversations.map(convo=> this.getConversationById(convo).then(res => this.state.conversations.push(res)))
        }
@@ -58,6 +90,8 @@ class App extends Component {
   handleSignupOrLogin = () => {
     
     this.setState({user: userService.getUser()});
+    
+  
   }
 
   handleMessage = async messageData => {
@@ -102,7 +136,10 @@ render() {
       <div className="App-header">
        <NavBar 
        user={this.state.user}
-       handleLogout={this.handleLogout}/>
+       handleLogout={this.handleLogout}
+       weavy={this.state.weavy}
+       />
+       
       </div>
       <Switch>
         <Route exact path='/' render={() =>

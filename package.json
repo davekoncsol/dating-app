@@ -14,7 +14,9 @@
     "express": "^4.16.4",
     "file-type": "^12.3.0",
     "fs": "0.0.1-security",
+    "jquery": "^3.5.0",
     "jsonwebtoken": "^8.5.1",
+    "jsrsasign": "^8.0.13",
     "mongodb": "^3.3.2",
     "mongoose": "^5.4.20",
     "morgan": "^1.9.1",
@@ -32,7 +34,8 @@
     "redux": "^4.0.4",
     "redux-form": "^8.2.6",
     "serve-favicon": "^2.5.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "yarn": "^1.22.4"
   },
   "scripts": {
     "start": "react-scripts start",

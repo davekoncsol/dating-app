@@ -56,7 +56,7 @@ function update(user) {
 }
 
 function updateProfile(user, body) {
-  return fetch(`${BASE_URL}${user}`, {
+  return fetch(`${BASE_URL}${user._id}`, {
     method: 'PUT',
     headers: {'content-type': 'application/json'},
     body: JSON.stringify(body)
@@ -111,6 +111,7 @@ function logout() {
 }
 
 function login(creds) {
+  console.log(creds)
   return fetch(BASE_URL + 'login', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
@@ -118,7 +119,10 @@ function login(creds) {
   })
   .then(res => {
     // Valid login if we have a status of 2xx (res.ok)
-    if (res.ok) return res.json();
+    if (res.ok) {  
+      
+      return res.json();
+    }
     throw new Error('Bad Credentials!');
   })
   .then(({token}) => tokenService.setToken(token));

@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import heartlogo from '../../images/hearts-43887_1280.png'
 
 const NavBar = (props) => {
+  function toggleWeavy(e) {
+    console.log('click');
+    console.log(props)
+    console.log(e.target)
+  };
   
     let nav = props.user ?
     
@@ -18,6 +23,9 @@ const NavBar = (props) => {
         <Link to={`/allprofiles/`} className='NavBar-link'>All Profiles</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
         <Link to={`/inbox/`} className='NavBar-link'>Inbox</Link>
+        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <Link onClick={toggleWeavy.bind(this)} className='weavy-messenger-btn'>Messenger</Link>
+        
       </div>
       :
       <div className="NavBar">
