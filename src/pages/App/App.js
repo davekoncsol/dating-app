@@ -11,7 +11,7 @@ import AllProfilesPage from '../AllProfilesPage/AllProfilesPage';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import tokenService from '../../utils/tokenService';
 //import  './weavy-6.2.0+weavy.3f73d1d39.js';
-require('jquery');
+const $ = require('jquery');
 const Weavy = window.Weavy;
 
 
@@ -31,9 +31,6 @@ class App extends Component {
       user: userService.getUser(),
       message: null,
       conversations: [],
-
-      
-      
     };
   }
   
@@ -43,7 +40,7 @@ class App extends Component {
     const user = await userService.getUser();
   
     if(user) {
-      console.log(tokenService.getToken());
+    console.log(tokenService.getToken());
     this.setState({ 
       user: user, 
       weavy: new Weavy({
@@ -57,23 +54,48 @@ class App extends Component {
                  { type: "messenger", key: "main-messenger", },
                  { type: "notifications", key: "main-notifications", },
                  { type: "posts", key: "main-hub", name: "Hub", },
-           
               ]
             }
           ]
-      }) ,
+      }),
+    });
+
+    this.state.weavy.on("badge", function (e, data) {
+      var messenger = $(".weavy-messenger-btn");
+      var notifications = $(".weavy-notifications-btn");
+      data.conversations > 0 ? messenger.append(`<div class="badge">${data.conversations}</div>`) : messenger.find(".badge").remove();
+      data.notifications > 0 ? notifications.append(`<div class="badge">${data.notifications}</div>`) : notifications.find(".badge").remove();
+    });
+
+  // what happens when a certain app opens
+    this.state.weavy.on("open", function (e, open) {
+      console.log('woooooo')
+      if (open.space.options.key === "main") {
+          $(".widget-drawer").addClass("widget-drawer-in");
+          $(".weavy-title").text(open.app.name);     
+      }
+      $(".weavy-app-header").text(open.app.name);
+    });
+  // what happens when a certain app closes
+    this.state.weavy.on("close", function (e, close) {
+      console.log(close.space.options.key, "close- key")
+      if (close.space.options.key === "main") {
+          $(".widget-drawer").removeClass("widget-drawer-in");    
+      }
+    });
+
+    this.state.weavy.on("message-inserted.weavy.rtmweavy", function (e, message) {
     });
     
       if(user.conversations){
         this.state.user.conversations.map(convo=> this.getConversationById(convo).then(res => this.state.conversations.push(res)))
-       }
+      }
     }
-   }
+  }
 
   handleDeleteProfile = async id => {
     await userService.deleteOne(id);
     this.setState(state => ({
-      
       user: null
     }), () => this.props.history.push('/'));
   }
@@ -88,10 +110,7 @@ class App extends Component {
 
   
   handleSignupOrLogin = () => {
-    
     this.setState({user: userService.getUser()});
-    
-  
   }
 
   handleMessage = async messageData => {
@@ -100,12 +119,10 @@ class App extends Component {
       { message: message},
       () => this.props.history.push(`/`)
     )
-
   }
 
   handleUpdateProfile = async updatedProfileData => {
-   const updatedProfile= await userService.update(updatedProfileData);
-    
+    const updatedProfile= await userService.update(updatedProfileData);
     this.setState(
       {user: updatedProfile},
       () => this.props.history.push(`/profile/${this.state.user._id}`)
@@ -121,7 +138,6 @@ class App extends Component {
   getUserById = async id => {
    let profileUser = await userService.getUserBy(id);
    return profileUser
-
   }
 
   getAllUsers = async () => {
@@ -130,7 +146,6 @@ class App extends Component {
   }
 
 render() {
-  
     return (
     <div className="App">
       <div className="App-header">
@@ -152,8 +167,6 @@ render() {
         user={this.state.user}
         getUserById={this.getUserById}
         handleMessage={this.handleMessage}
-        
-        
         />
       }/>
         <Route exact path="/allprofiles" render={(props) =>
@@ -163,7 +176,7 @@ render() {
         getAllUsers={this.getAllUsers}
         
         
-        />
+          />
         
         }/>
         <Route exact path='/signup' render={({ history }) =>

@@ -6,7 +6,9 @@ const NavBar = (props) => {
   function toggleWeavy(e) {
     console.log('click');
     console.log(props)
-    console.log(e.target)
+    console.log(e.target.innerText.toLowerCase());
+    props.weavy.space("main").toggle({ type: e.target.innerText.toLowerCase(), key: `main-${e.target.innerText.toLowerCase()}` });
+
   };
   
     let nav = props.user ?
@@ -38,7 +40,7 @@ const NavBar = (props) => {
       
       <div className='NavBar'>
         <Link to='/'>
-        <img src={`${heartlogo}`}/>
+        <img src={`${heartlogo}`} alt={'heart-logo'}/>
         </Link>
         {nav}
       </div>
